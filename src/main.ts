@@ -8,10 +8,8 @@ async function bootstrap() {
     bufferLogs: true,
   });
 
-  // Use Pino logger
   app.useLogger(app.get(Logger));
 
-  // Enable validation pipes globally
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -20,7 +18,6 @@ async function bootstrap() {
     }),
   );
 
-  // Enable CORS for Vercel deployment
   app.enableCors();
 
   const port = process.env.PORT || 3000;
